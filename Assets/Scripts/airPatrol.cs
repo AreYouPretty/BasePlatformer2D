@@ -25,6 +25,7 @@ public class airPatrol : MonoBehaviour
 
         if (transform.position == point1.position)
         {
+            
             Transform t = point1;
             point1 = point2;
             point2 = t;
