@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     int maxHp = 3;
     bool isHit = false;
     public Main main;
+    public bool key = false;
+    bool canTP = true;
 
     void Start()
     {
@@ -104,4 +106,33 @@ public class Player : MonoBehaviour
     {
         main.GetComponent<Main>().Lose();
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Key")
+        {
+            Destroy(collision.gameObject);
+            key = true;
+        }
+
+        if (collision.gameObject.tag == "Door")
+        {
+            if (collision.gameObject.GetComponent<Door>().isOpen && canTP)
+            {
+                collision.gameObject.GetComponent<Door>().Teleport(gameObject);
+                canTP = false;
+            }
+                
+            else if (key)
+                collision.gameObject.GetComponent<Door>().Unlock();
+        }
+    }
+
+
+    IEnumerator TPwait()
+    {
+        yield return new WaitForSeconds(1f);
+        canTP = true;
+    }
+
 }
