@@ -35,7 +35,7 @@ public class Water : MonoBehaviour
             timerHit += Time.deltaTime;
             if (timerHit >= 2f)
             {
-                gameObject.GetComponent<Player>().RecountHP(-1);
+                collision.GetComponent<Player>().RecountHP(-1);
                 timerHit = 0;
             }
         }
