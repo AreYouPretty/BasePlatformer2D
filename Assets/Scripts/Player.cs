@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public Main main;
     public bool key = false;
     bool canTP = true;
+    public bool inWater = false;
 
     void Start()
     {
@@ -27,19 +28,34 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        CheckGround();
-        if (Input.GetAxis("Horizontal")==0 && isGrounded)
+
+        if (inWater)
         {
-            anim.SetInteger("State", 1);
+            anim.SetInteger("State", 4);
+            isGrounded = false;
+            if (Input.GetAxis("Horizontal") != 0)
+            {
+                Flip();
+            }
         }
-        else
+        else 
         {
-            Flip();
-            if (isGrounded)
-                anim.SetInteger("State", 2);
+            CheckGround();
+            if (Input.GetAxis("Horizontal")==0 && isGrounded)
+            {
+                anim.SetInteger("State", 1);
+            }
+            else
+            {
+                Flip();
+                if (isGrounded)
+                    anim.SetInteger("State", 2);
+            }
         }
+
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             rb.AddForce(transform.up * jumpHeight, ForceMode2D.Impulse);
+
     }
 
     void FixedUpdate()
