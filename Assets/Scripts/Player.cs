@@ -137,6 +137,7 @@ public class Player : MonoBehaviour
             {
                 collision.gameObject.GetComponent<Door>().Teleport(gameObject);
                 canTP = false;
+                StartCoroutine(TPwait());
             }
                 
             else if (key)
