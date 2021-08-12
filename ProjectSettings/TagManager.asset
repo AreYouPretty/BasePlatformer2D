@@ -9,6 +9,9 @@ TagManager:
   - Ladder
   - Trampoline
   - MarkBox
+  - Coin
+  - Heart
+  - Mushroom
   layers:
   - Default
   - TransparentFX

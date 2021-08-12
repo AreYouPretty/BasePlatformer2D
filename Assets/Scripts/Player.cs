@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     bool canTP = true;
     public bool inWater = false;
     bool isClimbing = false;
+    int coins = 0;
 
     void Start()
     {
@@ -91,6 +92,10 @@ public class Player : MonoBehaviour
             isHit = true;
             StartCoroutine(OnHit());
         }
+        else if (curHp > maxHp)
+        {
+            curHp = maxHp;
+        }
 
         print(curHp);
         if (curHp <= 0)
@@ -143,6 +148,28 @@ public class Player : MonoBehaviour
 
             else if (key)
                 collision.gameObject.GetComponent<Door>().Unlock();
+        }
+
+        if (collision.gameObject.tag == "Coin")
+        {
+            Destroy(collision.gameObject);
+            
+            coins++;
+            print("Coins: " + coins);
+        }
+
+
+        if (collision.gameObject.tag == "Heart")
+        {
+            Destroy(collision.gameObject);
+            RecountHP(1);
+        }
+
+        if (collision.gameObject.tag == "Mushroom")
+        {
+            Destroy(collision.gameObject);
+            RecountHP(-1);
+
         }
     }
 
