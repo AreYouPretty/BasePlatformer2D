@@ -19,6 +19,10 @@ public class Player : MonoBehaviour
     public bool inWater = false;
     bool isClimbing = false;
     int coins = 0;
+    bool canHit = true;
+    public GameObject blueGem, greenGem;
+    int gemCount = 0;
+
 
     void Start()
     {
@@ -85,15 +89,17 @@ public class Player : MonoBehaviour
 
     public void RecountHP(int deltaHp)
     {
-        curHp = curHp + deltaHp;
-        if (deltaHp < 0)
+        if (deltaHp < 0 && canHit)
         {
+            curHp = curHp + deltaHp;
             StopCoroutine(OnHit());
+            canHit = false;
             isHit = true;
             StartCoroutine(OnHit());
         }
         else if (curHp > maxHp)
         {
+            curHp = curHp + deltaHp;
             curHp = maxHp;
         }
 
@@ -113,7 +119,11 @@ public class Player : MonoBehaviour
             GetComponent<SpriteRenderer>().color = new Color(1f, GetComponent<SpriteRenderer>().color.g + 0.04f, GetComponent<SpriteRenderer>().color.b + 0.04f);
 
         if (GetComponent<SpriteRenderer>().color.g == 1f)
+        {
             StopCoroutine(OnHit());
+            canHit = true;
+        }
+            
 
         if (GetComponent<SpriteRenderer>().color.b <= 0)
             isHit = false;
@@ -169,8 +179,20 @@ public class Player : MonoBehaviour
         {
             Destroy(collision.gameObject);
             RecountHP(-1);
-
         }
+
+        if (collision.gameObject.tag == "BlueGem")
+        {
+            Destroy(collision.gameObject);
+            StartCoroutine(NoHit());
+        }
+
+        if (collision.gameObject.tag == "GreenGem")
+        {
+            Destroy(collision.gameObject);
+            StartCoroutine(SpeedBonus());
+        }
+
     }
 
 
@@ -221,6 +243,67 @@ public class Player : MonoBehaviour
         an.SetBool("isJump", true);
         yield return new WaitForSeconds(0.5f);
         an.SetBool("isJump", false);
+    }
+
+    IEnumerator NoHit()
+    {
+        gemCount++;
+        blueGem.SetActive(true);
+        CheckGems(blueGem);
+
+        canHit = false;
+        blueGem.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        yield return new WaitForSeconds(4f);
+        StartCoroutine(Invis(blueGem.GetComponent<SpriteRenderer>(), 0.02f));
+        yield return new WaitForSeconds(1f);
+        canHit = true;
+
+        gemCount--;
+        blueGem.SetActive(false);
+        CheckGems(greenGem);
+    }
+
+    IEnumerator SpeedBonus()
+    {
+        gemCount++;
+        greenGem.SetActive(true);
+        CheckGems(greenGem);
+
+        speed *= 2;
+
+        greenGem.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        yield return new WaitForSeconds(9f);
+        StartCoroutine(Invis(greenGem.GetComponent<SpriteRenderer>(), 0.02f));
+        yield return new WaitForSeconds(1f);
+        speed /= 2;
+
+        gemCount--;
+        greenGem.SetActive(false);
+        CheckGems(blueGem);
+
+    }
+
+    void CheckGems(GameObject obj)
+    {
+        if (gemCount == 1)
+        {
+            obj.transform.localPosition = new Vector3(0f, 0.6f, obj.transform.localPosition.z);
+        }
+        else if (gemCount == 2)
+        {
+            blueGem.transform.localPosition = new Vector3(-0.5f, 0.5f, blueGem.transform.localPosition.z);
+            greenGem.transform.localPosition = new Vector3(0.5f, 0.5f, greenGem.transform.localPosition.z);
+        }
+    }
+
+    IEnumerator Invis(SpriteRenderer spr, float time)
+    {
+        spr.color = new Color(1f, 1f, 1f, spr.color.a - time * 2);
+        yield return new WaitForSeconds(time);
+        if (spr.color.a > 0)
+        {
+            StartCoroutine(Invis(spr, time));
+        }
     }
 
 }
