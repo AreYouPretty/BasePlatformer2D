@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     bool isHit = false;
+    public GameObject drop;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player" && !isHit)
@@ -16,6 +18,10 @@ public class Enemy : MonoBehaviour
 
     public IEnumerator Death()
     {
+        if (drop != null)
+        {
+            Instantiate(drop, transform.position, Quaternion.identity);
+        }
         isHit = true;
         GetComponent<Animator>().SetBool("dead", true);
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
