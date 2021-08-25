@@ -335,30 +335,30 @@ Tilemap:
   m_TileMatrixArray:
   - m_RefCount: 0
     m_Data:
-      e00: 1.084227e-19
+      e00: 2.5244127e-29
       e01: 0
-      e02: 8.34814e-26
-      e03: 8.34814e-26
-      e10: 7.5e-43
+      e02: -7.995807e+27
+      e03: -7.995807e+27
+      e10: 7.38e-43
       e11: 0
-      e12: 2.91e-43
-      e13: 2.91e-43
+      e12: 1.49e-43
+      e13: 1.49e-43
       e20: 2.472841e+11
-      e21: 3.6930643e+19
-      e22: -4.521656
-      e23: 3.6930643e+19
+      e21: 1.5859172e+29
+      e22: -4.842655e-10
+      e23: 1.5859172e+29
       e30: 4.5905e-41
-      e31: 7.51e-43
-      e32: 7.48e-43
-      e33: 7.51e-43
+      e31: 7.4e-43
+      e32: 7.37e-43
+      e33: 7.4e-43
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: 3.1667e-41, g: 3.1667e-41, b: 3.1667e-41, a: 3.1667e-41}
+    m_Data: {r: 3.1616e-41, g: 3.1616e-41, b: 3.1616e-41, a: 3.1616e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -21, y: -12, z: 0}
-  m_Size: {x: 43, y: 18, z: 1}
+  m_Origin: {x: -25, y: -12, z: 0}
+  m_Size: {x: 47, y: 18, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -434,7 +434,6 @@ GameObject:
   m_Component:
   - component: {fileID: 474512247}
   - component: {fileID: 474512248}
-  - component: {fileID: 474512249}
   m_Layer: 0
   m_Name: colored_land
   m_TagString: Untagged
@@ -512,20 +511,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &474512249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 474512246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5c03a95606ee824ab273b1dd9495d33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 519420028}
-  parallaxEffect: 0.7
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +963,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 817280040}
+  - component: {fileID: 817280041}
   m_Layer: 0
   m_Name: Bg
   m_TagString: Untagged
@@ -1000,6 +986,20 @@ Transform:
   m_Father: {fileID: 519420032}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &817280041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817280039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c03a95606ee824ab273b1dd9495d33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 519420028}
+  parallaxEffect: 0.7
 --- !u!1 &1147144813
 GameObject:
   m_ObjectHideFlags: 0
