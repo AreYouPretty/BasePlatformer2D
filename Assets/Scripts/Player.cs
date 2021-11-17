@@ -236,6 +236,13 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(TrampolineAnim(collision.gameObject.GetComponentInParent<Animator>()));
         }
+
+        if (collision.gameObject.tag == "Quicksand")
+        {
+            speed *= 0.25f;
+            rb.mass *= 100f;
+        }
+
     }
 
     IEnumerator TrampolineAnim(Animator an)
@@ -306,4 +313,13 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Quicksand")
+        {
+            speed *= 4f;
+            rb.mass *= 0.01f;
+        }
+    }
 }
