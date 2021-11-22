@@ -15,6 +15,7 @@ TagManager:
   - BlueGem
   - GreenGem
   - Quicksand
+  - Icy
   layers:
   - Default
   - TransparentFX

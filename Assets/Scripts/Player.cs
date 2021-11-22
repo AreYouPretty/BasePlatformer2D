@@ -219,6 +219,16 @@ public class Player : MonoBehaviour
             }
             
         }
+
+        if (collision.gameObject.tag == "Icy")
+        {
+            if (rb.gravityScale == 1f)
+            {
+                rb.gravityScale = 7f;
+                speed *= 0.25f;
+            }
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -228,6 +238,17 @@ public class Player : MonoBehaviour
             isClimbing = false;
             rb.bodyType = RigidbodyType2D.Dynamic;
         }
+
+
+        if (collision.gameObject.tag == "Icy")
+        {
+            if (rb.gravityScale == 7f)
+            {
+                rb.gravityScale = 1f;
+                speed *= 4f;
+            }
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
