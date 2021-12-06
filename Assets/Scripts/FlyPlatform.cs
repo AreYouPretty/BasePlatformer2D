@@ -18,7 +18,12 @@ public class FlyPlatform : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            float posX = transform.position.x, posY = transform.position.y;
             transform.position = Vector3.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
+
+            collision.gameObject.transform.position = new Vector3(collision.gameObject.transform.position.x + transform.position.x - posX,
+                collision.gameObject.transform.position.y + transform.position.y - posY,
+                collision.gameObject.transform.position.z);
 
             if (transform.position == points[i].position)
             {
