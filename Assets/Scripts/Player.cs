@@ -343,4 +343,9 @@ public class Player : MonoBehaviour
             rb.mass *= 0.01f;
         }
     }
+
+    public int GetCoins()
+    {
+        return coins;
+    }
 }
