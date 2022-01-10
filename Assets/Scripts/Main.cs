@@ -19,5 +19,18 @@ public class Main : MonoBehaviour
     public void Update()
     {
         coinText.text = player.GetCoins().ToString();
+
+        for(int i=0; i<hearts.Length;i++)
+        {
+            if (player.GetHP() > i)
+            {
+                hearts[i].sprite = isLife;
+            }
+            else
+            {
+                hearts[i].sprite = nonLife;
+            }
+        }
+
     }
 }

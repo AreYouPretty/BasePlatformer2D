@@ -347,5 +347,10 @@ public class Player : MonoBehaviour
     public int GetCoins()
     {
         return coins;
+    } 
+    
+    public int GetHP()
+    {
+        return curHp;
     }
 }
