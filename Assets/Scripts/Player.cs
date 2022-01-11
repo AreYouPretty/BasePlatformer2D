@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
             curHp = maxHp;
         }
 
-        print(curHp);
+        
         if (curHp <= 0)
         {
             GetComponent<CapsuleCollider2D>().enabled = false;
@@ -165,7 +165,6 @@ public class Player : MonoBehaviour
             Destroy(collision.gameObject);
             
             coins++;
-            print("Coins: " + coins);
         }
 
 
