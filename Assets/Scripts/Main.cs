@@ -10,6 +10,7 @@ public class Main : MonoBehaviour
     public Text coinText;
     public Image[] hearts;
     public Sprite isLife, nonLife;
+    public GameObject PauseScreen;
 
     public void Lose()
     {
@@ -33,4 +34,19 @@ public class Main : MonoBehaviour
         }
 
     }
+
+    public void PauseOn()
+    {
+        Time.timeScale = 0f;
+        player.enabled = false;
+        PauseScreen.SetActive(true);
+    }   
+    
+    public void PauseOff()
+    {
+        Time.timeScale = 1f;
+        player.enabled = true;
+        PauseScreen.SetActive(false);
+    }
+
 }
