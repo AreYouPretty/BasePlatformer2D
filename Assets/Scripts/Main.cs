@@ -11,6 +11,7 @@ public class Main : MonoBehaviour
     public Image[] hearts;
     public Sprite isLife, nonLife;
     public GameObject PauseScreen;
+    public GameObject WinScreen;
 
     public void Lose()
     {
@@ -47,6 +48,13 @@ public class Main : MonoBehaviour
         Time.timeScale = 1f;
         player.enabled = true;
         PauseScreen.SetActive(false);
+    }
+
+    public void Win()
+    {
+        Time.timeScale = 0f;
+        player.enabled = true;
+        WinScreen.SetActive(true);
     }
 
 }
