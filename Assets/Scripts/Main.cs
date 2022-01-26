@@ -12,8 +12,9 @@ public class Main : MonoBehaviour
     public Sprite isLife, nonLife;
     public GameObject PauseScreen;
     public GameObject WinScreen;
+    public GameObject LoseScreen;
 
-    public void Lose()
+    public void Reloadlvl()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -55,6 +56,22 @@ public class Main : MonoBehaviour
         Time.timeScale = 0f;
         player.enabled = true;
         WinScreen.SetActive(true);
+    }
+    public void Lose()
+    {
+        Time.timeScale = 0f;
+        player.enabled = true;
+        LoseScreen.SetActive(true);
+    }
+
+    public void Menulvl()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void NextLvl()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }
