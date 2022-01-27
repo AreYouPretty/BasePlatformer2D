@@ -16,6 +16,8 @@ public class Main : MonoBehaviour
 
     public void Reloadlvl()
     {
+        Time.timeScale = 1f;
+        player.enabled = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -66,11 +68,15 @@ public class Main : MonoBehaviour
 
     public void Menulvl()
     {
+        Time.timeScale = 1f;
+        player.enabled = true;
         SceneManager.LoadScene("Menu");
     }
 
     public void NextLvl()
     {
+        Time.timeScale = 1f;
+        player.enabled = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
