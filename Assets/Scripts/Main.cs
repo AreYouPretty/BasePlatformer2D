@@ -58,6 +58,11 @@ public class Main : MonoBehaviour
         Time.timeScale = 0f;
         player.enabled = true;
         WinScreen.SetActive(true);
+
+        if (!PlayerPrefs.HasKey("Lvl") || PlayerPrefs.GetInt("Lvl") < SceneManager.GetActiveScene().buildIndex) 
+        {
+            
+        }
     }
     public void Lose()
     {
