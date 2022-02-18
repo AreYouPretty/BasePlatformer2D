@@ -61,7 +61,7 @@ public class Main : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("Lvl") || PlayerPrefs.GetInt("Lvl") < SceneManager.GetActiveScene().buildIndex) 
         {
-            
+            PlayerPrefs.SetInt("Lvl", SceneManager.GetActiveScene().buildIndex);
         }
     }
     public void Lose()
