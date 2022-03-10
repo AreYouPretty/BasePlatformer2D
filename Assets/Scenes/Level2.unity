@@ -10160,7 +10160,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 912888381}
         m_TargetAssemblyTypeName: Main, Assembly-CSharp
         m_MethodName: Menulvl
         m_Mode: 1
@@ -10714,7 +10714,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 912888381}
         m_TargetAssemblyTypeName: Main, Assembly-CSharp
         m_MethodName: Reloadlvl
         m_Mode: 1
@@ -11780,7 +11780,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 912888381}
         m_TargetAssemblyTypeName: Main, Assembly-CSharp
         m_MethodName: NextLvl
         m_Mode: 1
