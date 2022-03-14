@@ -608,6 +608,7 @@ MonoBehaviour:
   lvls:
   - {fileID: 1256790502}
   - {fileID: 380108179}
+  - {fileID: 430656169}
 --- !u!1 &276071744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2433,7 +2434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1767789721
 RectTransform:
   m_ObjectHideFlags: 0
