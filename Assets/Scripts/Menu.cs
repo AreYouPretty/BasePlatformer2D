@@ -10,11 +10,11 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
-        if(PlayerPrefs.HasKey("Lvls"))
+        if(PlayerPrefs.HasKey("Lvl"))
         {
-            for (int i = 0; i < lvls.Length - 1; i++)
+            for (int i = 0; i < lvls.Length; i++)
             {
-                if (i <= PlayerPrefs.GetInt("Lvls"))
+                if (i <= PlayerPrefs.GetInt("Lvl"))
                 {
                     lvls[i].interactable = true;
                 }
@@ -30,6 +30,6 @@ public class Menu : MonoBehaviour
 
     public void DelKeys()
     {
-        
+        PlayerPrefs.DeleteAll();
     }
 }
