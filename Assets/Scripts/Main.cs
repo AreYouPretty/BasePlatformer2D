@@ -66,7 +66,7 @@ public class Main : MonoBehaviour
 
         if (PlayerPrefs.HasKey("coins"))
         {
-            PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("coins") + player.GetCoins());
+            PlayerPrefs.SetInt("coins",  + player.GetCoins());
         }
         else
         {

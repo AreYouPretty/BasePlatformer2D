@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour
 {
     public Button[] lvls;
+    public Text coinText;
 
     void Start()
     {
@@ -22,6 +23,14 @@ public class Menu : MonoBehaviour
                     lvls[i].interactable = false;
             }
         }
+    }
+
+    void Update()
+    {
+        if (PlayerPrefs.HasKey("coins"))
+            coinText.text = PlayerPrefs.GetInt("coins").ToString();
+        else
+            coinText.text = "0";
     }
     public void OpenScene(int index)
     {

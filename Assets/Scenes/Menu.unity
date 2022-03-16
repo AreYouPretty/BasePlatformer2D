@@ -453,6 +453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvls: []
+  coinText: {fileID: 0}
 --- !u!1 &203054097
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +686,7 @@ MonoBehaviour:
   - {fileID: 1256790502}
   - {fileID: 380108179}
   - {fileID: 430656169}
+  coinText: {fileID: 584312112}
 --- !u!1 &276071744
 GameObject:
   m_ObjectHideFlags: 0
