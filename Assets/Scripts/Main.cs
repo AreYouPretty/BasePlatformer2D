@@ -13,6 +13,8 @@ public class Main : MonoBehaviour
     public GameObject PauseScreen;
     public GameObject WinScreen;
     public GameObject LoseScreen;
+    float timer = 0f;
+    public Text timeText;
 
     public void Reloadlvl()
     {
@@ -36,6 +38,9 @@ public class Main : MonoBehaviour
                 hearts[i].sprite = nonLife;
             }
         }
+
+        timer += Time.deltaTime;
+        timeText.text = timer.ToString();
 
     }
 
