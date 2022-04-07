@@ -40,7 +40,7 @@ public class Main : MonoBehaviour
         }
 
         timer += Time.deltaTime;
-        timeText.text = timer.ToString("F2");
+        timeText.text = timer.ToString("F2").Replace(",", ":");
 
     }
 
