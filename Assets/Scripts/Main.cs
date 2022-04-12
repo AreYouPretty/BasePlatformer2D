@@ -15,12 +15,22 @@ public class Main : MonoBehaviour
     public GameObject LoseScreen;
     float timer = 0f;
     public Text timeText;
+    public TimeWork timeWork;
+    public float countdown;
 
     public void Reloadlvl()
     {
         Time.timeScale = 1f;
         player.enabled = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void Start()
+    {
+        if ((int)timeWork == 2) 
+        {
+            timer = countdown;
+        }
     }
 
     public void Update()
@@ -39,8 +49,24 @@ public class Main : MonoBehaviour
             }
         }
 
-        timer += Time.deltaTime;
-        timeText.text = timer.ToString("F2").Replace(",", ":");
+
+        if ((int)timer == 1)
+        {
+            timer += Time.deltaTime;
+            timeText.text = timer.ToString("F2").Replace(",", ":");
+        }
+        else if((int)timer==2)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                Lose();
+            }
+            else
+            {
+                timeText.gameObject.SetActive(false);
+            }
+        
 
     }
 
@@ -100,4 +126,11 @@ public class Main : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+}
+
+public enum TimeWork
+{
+    None,
+    StopWatch,
+    Timer
 }
