@@ -55,7 +55,7 @@ public class Main : MonoBehaviour
             timer += Time.deltaTime;
             timeText.text = timer.ToString("F2").Replace(",", ":");
         }
-        else if((int)timer==2)
+        else if ((int)timer == 2)
         {
             timer -= Time.deltaTime;
             if (timer <= 0)
@@ -66,7 +66,7 @@ public class Main : MonoBehaviour
             {
                 timeText.gameObject.SetActive(false);
             }
-        
+        }
 
     }
 
