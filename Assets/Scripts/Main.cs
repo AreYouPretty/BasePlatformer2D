@@ -62,12 +62,11 @@ public class Main : MonoBehaviour
             {
                 Lose();
             }
-            else
+        }
+        else
             {
                 timeText.gameObject.SetActive(false);
             }
-        }
-
     }
 
     public void PauseOn()

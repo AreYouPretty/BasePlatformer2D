@@ -5018,8 +5018,8 @@ MonoBehaviour:
   WinScreen: {fileID: 1982760328}
   LoseScreen: {fileID: 902796078}
   timeText: {fileID: 392432002}
-  timeWork: 0
-  countdown: 21
+  timeWork: 2
+  countdown: 5
 --- !u!114 &912888382
 MonoBehaviour:
   m_ObjectHideFlags: 0
