@@ -52,11 +52,13 @@ public class Main : MonoBehaviour
 
         if ((int)timer == 1)
         {
+            timeText.gameObject.SetActive(true);
             timer += Time.deltaTime;
             timeText.text = timer.ToString("F2").Replace(",", ":");
         }
         else if ((int)timer == 2)
         {
+            timeText.gameObject.SetActive(true);
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
