@@ -63,7 +63,7 @@ public class Main : MonoBehaviour
                 Lose();
             }
         }
-        else
+        else ((int)timer == 0)
             {
                 timeText.gameObject.SetActive(false);
             }
