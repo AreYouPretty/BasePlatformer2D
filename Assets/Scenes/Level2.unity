@@ -344,7 +344,7 @@ MonoBehaviour:
   speed: 8
   jumpHeight: 13
   groundCheck: {fileID: 422631107}
-  main: {fileID: 0}
+  main: {fileID: 912888381}
   key: 0
   inWater: 0
   blueGem: {fileID: 6746180919338765157, guid: 1f8fef239562c85499a3dad2ba03804c, type: 3}
